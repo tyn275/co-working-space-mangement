@@ -1,0 +1,12 @@
+{
+  "greeting": "Xin chào!",
+  "auth": {
+    "login_success": "Đăng nhập thành công",
+    "invalid_credentials": "Email hoặc mật khẩu không chính xác",
+    "email_exists": "Email này đã được sử dụng"
+  },
+  "validation": {
+    "required": "Trường này là bắt buộc",
+    "invalid_email": "Email không hợp lệ"
+  }
+}
