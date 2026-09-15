@@ -6,8 +6,8 @@ export class Role {
   @PrimaryGeneratedColumn({ type: 'int' })
   id: number;
 
-  @Column({ nullable: true })
-  name: string;
+  @Column({ type: 'varchar', nullable: true })
+  name: string | null;
 
   @ManyToMany(() => User, (user) => user.roles)
   users: User[];

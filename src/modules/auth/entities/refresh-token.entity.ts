@@ -23,7 +23,7 @@ export class RefreshToken {
   expiresAt: Date;
 
   @Column({ name: 'used_at', type: 'timestamp', nullable: true })
-  usedAt: Date;
+  usedAt: Date | null;
 
   // true = token for revoked in manually (logout, password changed,...)
   @Column({ default: false })

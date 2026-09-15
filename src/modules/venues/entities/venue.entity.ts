@@ -30,17 +30,17 @@ export class Venue {
   @Column({ nullable: true, type: 'jsonb' })
   description?: Record<string, string> | null;
 
-  @Column({ nullable: true })
-  street: string;
+  @Column({ type: 'varchar', nullable: true })
+  street: string | null;
 
   @Column()
   city: string;
 
   @Column({ type: 'decimal', precision: 9, scale: 6, nullable: true })
-  latitude: string;
+  latitude: string | null;
 
   @Column({ type: 'decimal', precision: 9, scale: 6, nullable: true })
-  longitude: string;
+  longitude: string | null;
 
   @Column({
     type: 'enum',

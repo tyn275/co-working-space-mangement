@@ -27,17 +27,17 @@ export class Space {
   type: SpaceType;
 
   @Column({ nullable: true, type: 'int' })
-  capacity: number;
+  capacity: number | null;
 
   @Column({ nullable: true, type: 'jsonb' })
   description?: Record<string, string> | null;
 
   // Return string format 'HH:mm:ss'
   @Column({ name: 'open_time', type: 'time', nullable: true })
-  openTime: string;
+  openTime: string | null;
 
   @Column({ name: 'close_time', type: 'time', nullable: true })
-  closeTime: string;
+  closeTime: string | null;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

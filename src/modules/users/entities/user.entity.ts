@@ -26,14 +26,14 @@ export class User {
   @Column({ name: 'password_hash' })
   passwordHash: string;
 
-  @Column({ name: 'full_name', nullable: true })
-  fullName: string;
+  @Column({ name: 'full_name', type: 'varchar', nullable: true })
+  fullName: string | null;
 
-  @Column({ nullable: true })
-  phone: string;
+  @Column({ type: 'varchar', nullable: true })
+  phone: string | null;
 
-  @Column({ name: 'avatar_url', nullable: true })
-  avatarUrl: string;
+  @Column({ name: 'avatar_url', type: 'varchar', nullable: true })
+  avatarUrl: string | null;
 
   @Column({ name: 'is_verified', default: false })
   isVerified: boolean;
