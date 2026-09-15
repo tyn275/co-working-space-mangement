@@ -31,11 +31,14 @@ export class OtpVerification {
   expiresAt: Date;
 
   @Column({ name: 'used_at', type: 'timestamp', nullable: true })
-  usedAt: Date;
+  usedAt: Date | null;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
+  /**
+   * Set up relationship Many-to-One with object User through by TypeORM
+   */
   @ManyToOne(() => User, (u) => u.otpVerifications, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'user_id' })
   user: User;

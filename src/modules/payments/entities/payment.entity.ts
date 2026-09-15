@@ -33,11 +33,11 @@ export class Payment {
   status: PaymentStatus;
 
   // Transaction code from payment gateway (VNPay, Momo, Stripe)
-  @Column({ name: 'transaction_ref', nullable: true })
-  transactionRef: string;
+  @Column({ name: 'transaction_ref', type: 'varchar', nullable: true })
+  transactionRef: string | null;
 
   @Column({ name: 'paid_at', type: 'timestamp', nullable: true })
-  paidAt: Date;
+  paidAt: Date | null;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

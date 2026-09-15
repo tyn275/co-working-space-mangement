@@ -29,13 +29,13 @@ export class UserIdentityVerification {
   status: VerificationStatus;
 
   @Column({ name: 'reviewed_by', type: 'bigint', nullable: true })
-  reviewedBy: number;
+  reviewedBy: number | null;
 
   @Column({ name: 'reviewed_at', type: 'timestamp', nullable: true })
-  reviewedAt: Date;
+  reviewedAt: Date | null;
 
   @Column({ name: 'rejection_reason', type: 'text', nullable: true })
-  rejectionReason: string;
+  rejectionReason: string | null;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
@@ -51,5 +51,5 @@ export class UserIdentityVerification {
 
   @ManyToOne(() => User, { nullable: true })
   @JoinColumn({ name: 'reviewed_by' })
-  reviewer: User;
+  reviewer: User | null;
 }

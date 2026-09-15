@@ -24,11 +24,11 @@ export class Notification {
   title: string;
 
   @Column({ nullable: true, type: 'text' })
-  content: string;
+  content: string | null;
 
   // ID of related objects (booking_id, payment_id,...) — polymorphic reference
   @Column({ name: 'reference_id', type: 'bigint', nullable: true })
-  referenceId: number;
+  referenceId: number | null;
 
   @Column({ name: 'is_read', default: false })
   isRead: boolean;
