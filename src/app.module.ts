@@ -14,6 +14,7 @@ import {
 import appConfig from './config/app.config';
 import jwtConfig from './config/jwt.config';
 import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
 import swaggerConfig from './config/swagger.config';
 
 // Entities
@@ -80,6 +81,7 @@ import { OtpVerification } from './modules/auth/entities/otp-verification.entity
       ],
     }),
     AuthModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
