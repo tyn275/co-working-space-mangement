@@ -4,16 +4,19 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { User } from '../users/entities/user.entity';
+import { UsersModule } from '../users/users.module';
 import { OtpVerification } from './entities/otp-verification.entity';
 import { RefreshToken } from './entities/refresh-token.entity';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { AuthService } from './auth.service';
+import { AuthController } from './auth.controller';
 
 @Module({
   imports: [
+    UsersModule,
     // Register TypeORM, Entity that AuthModule need to interact with DB
-    TypeOrmModule.forFeature([User, OtpVerification, RefreshToken]),
+    TypeOrmModule.forFeature([OtpVerification, RefreshToken]),
 
     PassportModule.register({ defaultStrategy: 'jwt' }),
 
@@ -29,7 +32,8 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
       }),
     }),
   ],
-  providers: [JwtStrategy, JwtAuthGuard],
-  exports: [JwtAuthGuard, JwtModule, PassportModule],
+  controllers: [AuthController],
+  providers: [JwtStrategy, JwtAuthGuard, AuthService],
+  exports: [JwtAuthGuard, JwtModule, PassportModule, AuthService],
 })
 export class AuthModule {}
